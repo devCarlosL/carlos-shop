@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-// import { useCart } from '../contexts/CartContext';
+import { useCart } from '../../contexts/cart';
 import { SidebarContainer, ContentContainer } from './styles';
 
 function Sidebar({ children }) {
-  // const { shoppingCart } = useCart();
+  const { shoppingCart } = useCart();
 
   const pages = [
     { name: 'Home', route: '/home' },
@@ -39,6 +39,7 @@ function Sidebar({ children }) {
       </article>
       <ContentContainer>
         <header className="sidebar__header">
+          <span>{shoppingCart.length >= 1 ? shoppingCart.length : 0}</span>
           <NavLink
             to="/cart"
             activeStyle={{
@@ -48,7 +49,6 @@ function Sidebar({ children }) {
           >
             Carrinho
           </NavLink>
-          {/* <span>{shoppingCart.length}</span> */}
         </header>
         <section className="content">{children}</section>
       </ContentContainer>

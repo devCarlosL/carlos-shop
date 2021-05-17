@@ -69,7 +69,7 @@ export const ContentContainer = styled('div')`
       background: transparent;
       color: #264356;
       border-radius: 0.2rem;
-      margin-right: 0.1rem;
+      margin-right: 1.5rem;
       padding: 0.25rem 0.5rem;
     }
 
@@ -86,7 +86,7 @@ export const ContentContainer = styled('div')`
       align-items: center;
       justify-content: center;
       color: #fff;
-      margin-right: 1.5rem;
+      margin-right: 0.1rem;
 
       font-size: 0.7rem;
       font-weight: bold;
