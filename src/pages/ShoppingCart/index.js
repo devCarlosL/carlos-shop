@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 import React, { useEffect, useRef, useState } from 'react';
@@ -110,9 +109,9 @@ function ShoppingCart() {
               </tr>
             </thead>
             <tbody>
-              {shoppingCart.map((item, id) => {
+              {shoppingCart.map((item) => {
                 return (
-                  <tr key={id}>
+                  <tr key={item.id}>
                     <td>
                       <img src={img} alt="box" />
                       {item.product}
@@ -145,7 +144,7 @@ function ShoppingCart() {
                       <button
                         className="table__cart__cell-btn"
                         type="button"
-                        onClick={() => handleRemoveItemFromCart(id)}
+                        onClick={() => handleRemoveItemFromCart(item.id)}
                       >
                         Remover
                       </button>

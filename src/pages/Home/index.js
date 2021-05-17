@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 
 import HomeCard from '../../components/HomeCard';
@@ -28,15 +27,15 @@ function Home() {
         <span className="empty__products">Não há produtos</span>
       ) : (
         <ul>
-          {storedProducts.map((item, i) => (
-            <li key={i}>
+          {storedProducts.map((item) => (
+            <li key={item.id}>
               <HomeCard
                 product={item.product}
                 price={item.price}
                 textButton="Adicionar"
                 onClick={() =>
                   handleAddItemToCart(
-                    i,
+                    item.id,
                     item.product,
                     item.description,
                     item.price,

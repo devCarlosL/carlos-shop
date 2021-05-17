@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import * as yup from 'yup';
+import { v4 as uuid } from 'uuid';
 
 import Divider from '../../components/Divider';
 import UnformInput from '../../components/UnformInput';
@@ -30,18 +31,26 @@ function Products() {
         abortEarly: false,
       });
 
+      const registerProducts = {
+        id: uuid(),
+        product: data.product,
+        description: data.description,
+        quantity: data.quantity,
+        price: data.price,
+      };
+
       if (localStorage.getItem('products') === null) {
-        localStorage.setItem('products', JSON.stringify([data]));
-        setStoredProducts([...storedProducts, data]);
+        localStorage.setItem('products', JSON.stringify([registerProducts]));
+        setStoredProducts([...storedProducts, registerProducts]);
       } else {
         const getStoredProducts = await JSON.parse(
           localStorage.getItem('products'),
         );
         localStorage.setItem(
           'products',
-          JSON.stringify([...getStoredProducts, data]),
+          JSON.stringify([...getStoredProducts, registerProducts]),
         );
-        setStoredProducts([...storedProducts, data]);
+        setStoredProducts([...storedProducts, registerProducts]);
       }
 
       reset();
@@ -57,7 +66,7 @@ function Products() {
 
   const handleRemove = (clickedItem) => {
     const filteredProduct = storedProducts.filter(
-      (item) => storedProducts.indexOf(item) !== clickedItem,
+      (item) => item.id !== clickedItem,
     );
 
     setStoredProducts(filteredProduct);
