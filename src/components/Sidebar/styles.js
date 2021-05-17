@@ -78,12 +78,8 @@ export const ContentContainer = styled('div')`
       padding: 0.25rem 0.5rem;
     }
 
-    .teste {
-      background: #e6eaec;
-    }
-
-    .teste2 {
-      background: red;
+    .empty__cart {
+      display: none;
     }
 
     span {
