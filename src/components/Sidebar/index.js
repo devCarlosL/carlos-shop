@@ -17,7 +17,7 @@ function Sidebar({ children }) {
     <SidebarContainer>
       <article className="sidebar">
         <div className="logo">
-          <NavLink to="/home">S-SHOP</NavLink>
+          <NavLink to="/home">CART-LOPES</NavLink>
         </div>
         <nav>
           <ul className="sidebar__nav">

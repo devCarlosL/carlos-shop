@@ -20,6 +20,11 @@ export const SidebarContainer = styled('main')`
       h1 {
         margin: 0;
       }
+
+      a {
+        font-size: 1.5rem;
+        color: #ced5d9;
+      }
     }
 
     .sidebar__nav {
