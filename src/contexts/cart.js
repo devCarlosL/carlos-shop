@@ -26,7 +26,7 @@ function CartProvider(props) {
 
     if (localStorage.getItem('shopping-cart') === null) {
       localStorage.setItem('shopping-cart', JSON.stringify([createProduct]));
-      setShoppingCart(createProduct);
+      setShoppingCart([...shoppingCart, createProduct]);
     } else {
       const productsInCart = await JSON.parse(
         localStorage.getItem('shopping-cart'),
@@ -63,7 +63,7 @@ function CartProvider(props) {
       }
     })();
   }, []);
-
+  console.log(shoppingCart);
   return (
     <CartContext.Provider
       value={{
