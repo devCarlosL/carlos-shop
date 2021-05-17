@@ -7,8 +7,10 @@ import { useCart } from '../../contexts/cart';
 import HomeContainer from './styles';
 
 function Home() {
-  const { handleAddItemToCart } = useCart();
+  const { shoppingCart, handleAddItemToCart } = useCart();
   const [storedProducts, setStoredProducts] = useState([]);
+
+  const verifyOncart = (id) => shoppingCart.find((el) => el.id === id);
 
   useEffect(() => {
     (async () => {
@@ -32,7 +34,8 @@ function Home() {
               <HomeCard
                 product={item.product}
                 price={item.price}
-                textButton="Adicionar"
+                disabled={!!verifyOncart(item.id)}
+                textButton={verifyOncart(item.id) ? 'No Carrinho' : 'Adicionar'}
                 onClick={() =>
                   handleAddItemToCart(
                     item.id,

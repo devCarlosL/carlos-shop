@@ -40,9 +40,7 @@ function CartProvider(props) {
   };
 
   const handleRemoveItemFromCart = (clickedItem) => {
-    const filteredCart = shoppingCart.filter(
-      (item) => shoppingCart.indexOf(item) !== clickedItem,
-    );
+    const filteredCart = shoppingCart.filter((item) => item.id !== clickedItem);
 
     setShoppingCart(filteredCart);
     localStorage.setItem('shopping-cart', JSON.stringify(filteredCart));
@@ -63,7 +61,7 @@ function CartProvider(props) {
       }
     })();
   }, []);
-  console.log(shoppingCart);
+
   return (
     <CartContext.Provider
       value={{
