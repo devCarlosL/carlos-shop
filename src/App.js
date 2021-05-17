@@ -7,11 +7,12 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import routes from './routes';
+
 import { NavigationProvider } from './contexts/navigation';
+import { CartProvider } from './contexts/cart';
 
 import Sidebar from './components/Sidebar';
-
-import routes from './routes';
 
 import GlobalStyles from './assets/styles/GlobalStyle';
 
@@ -32,8 +33,10 @@ export default function () {
   return (
     <Router>
       <NavigationProvider>
-        <GlobalStyles />
-        <App />
+        <CartProvider>
+          <GlobalStyles />
+          <App />
+        </CartProvider>
       </NavigationProvider>
     </Router>
   );
