@@ -22,8 +22,6 @@ function Home() {
     })();
   }, []);
 
-  console.log(storedProducts);
-
   return (
     <HomeContainer>
       <ul>
