@@ -39,7 +39,7 @@ function Sidebar({ children }) {
       </article>
       <ContentContainer>
         <header className="sidebar__header">
-          <span>{shoppingCart.length >= 1 ? shoppingCart.length : 0}</span>
+          <span>{shoppingCart.length}</span>
           <NavLink
             to="/cart"
             activeStyle={{
