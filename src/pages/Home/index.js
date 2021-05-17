@@ -24,26 +24,30 @@ function Home() {
 
   return (
     <HomeContainer>
-      <ul>
-        {storedProducts.map((item, i) => (
-          <li key={i}>
-            <HomeCard
-              product={item.product}
-              price={item.price}
-              textButton="Adicionar"
-              onClick={() =>
-                handleAddItemToCart(
-                  i,
-                  item.product,
-                  item.description,
-                  item.price,
-                  item.quantity,
-                )
-              }
-            />
-          </li>
-        ))}
-      </ul>
+      {storedProducts.length === 0 ? (
+        <span className="empty__products">Não há produtos</span>
+      ) : (
+        <ul>
+          {storedProducts.map((item, i) => (
+            <li key={i}>
+              <HomeCard
+                product={item.product}
+                price={item.price}
+                textButton="Adicionar"
+                onClick={() =>
+                  handleAddItemToCart(
+                    i,
+                    item.product,
+                    item.description,
+                    item.price,
+                    item.quantity,
+                  )
+                }
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </HomeContainer>
   );
 }
