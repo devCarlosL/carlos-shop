@@ -24,7 +24,8 @@ function Purshases() {
           <tr>
             <th>Pedido</th>
             <th>Comprador</th>
-            <th>Valor do Pedido</th>
+            <th>Quantidade de produtos</th>
+            <th>Valor total do pedido</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@ function Purshases() {
               <tr className="table__body" key={id}>
                 <td># {id}</td>
                 <td>{item.name}</td>
+                <td>{item.totalProductsPurshased}</td>
                 <td>{formatCurrency(item.totalValueOfProducts)}</td>
               </tr>
             ))
