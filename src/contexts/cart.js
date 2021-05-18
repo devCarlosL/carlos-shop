@@ -11,7 +11,6 @@ function CartProvider(props) {
     id,
     product,
     description,
-    quantity,
     price,
     soldAmount = 1,
   ) => {
@@ -19,7 +18,6 @@ function CartProvider(props) {
       id,
       product,
       description,
-      quantity,
       price,
       soldAmount,
     };
@@ -60,7 +58,7 @@ function CartProvider(props) {
         setShoppingCart(productsInCartFormat);
       }
     })();
-  }, []);
+  }, [setShoppingCart]);
 
   return (
     <CartContext.Provider
