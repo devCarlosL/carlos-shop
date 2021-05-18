@@ -28,7 +28,7 @@ function ShoppingCart() {
     handleClearCart,
   } = useCart();
 
-  const totalPrice = shoppingCart.reduce(
+  const totalValueOfProducts = shoppingCart.reduce(
     (acc, current) => acc + Number(current.price * current.soldAmount),
     0,
   );
@@ -48,9 +48,15 @@ function ShoppingCart() {
         abortEarly: false,
       });
 
+      const totalProductsPurshased = shoppingCart.reduce(
+        (acc, currency) => acc + currency.soldAmount,
+        0,
+      );
+
       const consumer = {
         name: data.name,
-        totalValueOfProducts: totalPrice,
+        totalProductsPurshased,
+        totalValueOfProducts,
         purchasedProducts: [...shoppingCart],
       };
 
@@ -156,7 +162,7 @@ function ShoppingCart() {
           </table>
           <Divider />
           <div className="btn__container">
-            <span>total: {formatCurrency(totalPrice)}</span>
+            <span>total: {formatCurrency(totalValueOfProducts)}</span>
             <Form
               className="form__checkout"
               ref={formRef}
