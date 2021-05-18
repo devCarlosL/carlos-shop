@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, {
   createContext,
@@ -24,15 +22,14 @@ function NavigationProvider(props) {
 }
 
 function withNavigationWatcher(Component) {
-  return function (props) {
-    const { path } = props.match;
+  return ({ match: { path } }) => {
     const { setNavigationData } = useNavigation();
 
     useEffect(() => {
       setNavigationData({ currentPath: path });
     }, [path, setNavigationData]);
 
-    return createElement(Component, props);
+    return createElement(Component, path);
   };
 }
 
