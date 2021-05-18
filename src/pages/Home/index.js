@@ -42,7 +42,6 @@ function Home() {
                     item.product,
                     item.description,
                     item.price,
-                    item.quantity,
                   )
                 }
               />
